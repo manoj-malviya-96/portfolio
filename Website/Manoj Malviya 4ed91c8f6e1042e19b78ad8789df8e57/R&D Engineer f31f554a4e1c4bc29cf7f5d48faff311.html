@@ -1,0 +1,678 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>R&amp;D Engineer</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="f31f554a-4e1c-4bc2-9cf7-f5d48faff311" class="page sans"><header><img class="page-cover-image" src="R&amp;D%20Engineer%20f31f554a4e1c4bc29cf7f5d48faff311/FE0a4QeXEAo6AXw.jpg-large.jpeg" style="object-position:center 76.94%"/><div class="page-header-icon page-header-icon-with-cover"><img class="icon" src="https://www.notion.so/icons/briefcase_lightgray.svg"/></div><h1 class="page-title">R&amp;D Engineer</h1></header><div class="page-body"><h1 id="96ea8980-8dfc-4390-89da-55e499739212" class="">Work Experience</h1><h2 id="f9748103-b8bc-461a-9548-3536c27657a6" class="">Formlabs</h2><hr id="ecd8f370-583f-4fd0-aa89-1c5c17ebdcc2"/><div id="a1eb7906-3312-4826-b417-c8a8618de75e" class="column-list"><div id="74948cf5-094e-41ef-a98b-b4d3a57abbb0" style="width:50%" class="column"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="43580bf8-0755-47d8-8503-b281459bd000"><div style="font-size:1.5em"><img class="icon" src="https://www.notion.so/icons/layers_gray.svg"/></div><div style="width:100%"><strong><em>Print Process Engineer, R&amp;D</em></strong><em> Improving SLA printers performance and user-experience</em></div></figure><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="0b65fbc3-5b74-417f-ab3c-b0d52d853a11"><div style="font-size:1.5em"><img class="icon" src="https://www.notion.so/icons/watch-analog_gray.svg"/></div><div style="width:100%">Feb 2021 - Present</div></figure></div><div id="3845b48b-eff7-4c94-aa21-4a6d864a403b" style="width:50%" class="column"><figure id="48c57e2a-a46f-455e-a43b-074ab99e52a0" class="image"><a href="R&amp;D%20Engineer%20f31f554a4e1c4bc29cf7f5d48faff311/form333.png"><img style="width:384px" src="R&amp;D%20Engineer%20f31f554a4e1c4bc29cf7f5d48faff311/form333.png"/></a></figure></div></div><p id="588c251d-c947-4830-b426-07066c694cff" class="">Optimizing the print process settings to improve success rate, quality and speed for Formlabs printers. </p><p id="d7e82bd9-9ab6-43fb-9d1f-658868b221ee" class="">Developing and optimizing print-process algorithms in Preform. Used C++ and Python.</p><p id="19ca8179-f6d9-43da-934f-58566d83631c" class="">Managing Support Generation subsystem: Design, test, implement and maintain features. Review print-settings and source-code changes to ensure intended behavior. Orchestrated the implementation of light touchtip supports.</p><p id="3a1c7642-c6aa-4b83-a625-18da3ba87bdd" class="">Pioneering a Topology Optimization algorithm to reduce volume of supports while maintaining critical stiffness.</p><p id="f275f215-6dda-4cdf-b2ce-7b16c2b78c2e" class="">Developed and maintaining web-based computational tools to assist peers in faster print-settings development and Data-Analysis. Used Django and React to develop GUI.</p><h3 id="19142e09-1b84-41a9-88e3-ac7585cff2c3" class="">Pennsylvania State University</h3><hr id="611c37b3-5ce8-4b61-af10-67038951a6e6"/><div id="9535569b-ad38-4a63-92d4-59ce1dea1fa2" class="column-list"><div id="46d7b10c-34ce-4471-864f-c184daed3c77" style="width:50%" class="column"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="44e7200a-5ab5-4a4d-9eb6-66f31b6261ad"><div style="font-size:1.5em"><img class="icon" src="https://www.notion.so/icons/layers_gray.svg"/></div><div style="width:100%"><strong><em>Graduate Research Assistant </em></strong><em>Collaborated with faculty to conduct computational design research</em></div></figure><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="a60aad20-d860-4999-865a-4aea5f47b778"><div style="font-size:1.5em"><img class="icon" src="https://www.notion.so/icons/watch-analog_gray.svg"/></div><div style="width:100%">Jan 2019 - Aug 2020</div></figure></div><div id="663f131e-a6aa-436d-a806-9e1902e9fa78" style="width:50%" class="column"><p id="23fc51a2-2362-48a8-b3e4-35f8cfc614d1" class="">
+</p><figure id="6f0a9628-605d-4968-b50e-3fbf577d34e9" class="image"><a href="R&amp;D%20Engineer%20f31f554a4e1c4bc29cf7f5d48faff311/Screen_Shot_2023-01-10_at_3.36.53_PM.png"><img style="width:384px" src="R&amp;D%20Engineer%20f31f554a4e1c4bc29cf7f5d48faff311/Screen_Shot_2023-01-10_at_3.36.53_PM.png"/></a></figure><p id="03b897ca-6b7b-4d30-ba4d-4d35c1d7eb7d" class="">
+</p></div></div><p id="fff7f24e-b6d5-4436-91e7-1761cf4ec1e2" class="">Coauthored 7 peer-reviewed publications and presented research results at scientific seminars, weekly meetings, thesis defense and international conference. Mentored undergraduate students for Honors’ thesis.</p><p id="8c1d5865-c9b4-4311-8b0a-0f70f26c4db3" class="">Devised a design experiment to characterize the re-design strategies for AM using a novel interdisciplinary method. Evaluated the design performance using Autodesk Net-fabb, Atlas 3D and 3D Slicer.</p><p id="db8d4301-78a1-4a21-84bd-f36f728b52ee" class="">Devised an experiment to get insights on human’s novel-problem solving process using Hidden Markov Model and Markov Chains. Contributed to design thinking literature.</p><p id="41e2d402-8625-46d4-8fbe-2b347d9906e2" class="">Developed a tool to automate the design process for embedding the objects into Additively manufactured parts. In pursuance of design automation, two novel methods were developed: Shadow Projection and Voxel-based uni-directional convexity.</p><p id="087db7c4-a3b9-4f71-b030-f8bb4ae89058" class="">
+</p><h1 id="3430ccee-c2db-4992-9bef-36d118149537" class="">Education</h1><h2 id="1e4b8e9a-f68f-4710-8cd2-cd914f90325d" class="">Masters of Science in Mechanical Engineering </h2><hr id="0b6a7335-b2a7-4067-8dcf-49f1757e3039"/><div id="335c9ecd-3ed9-40fe-a681-398199fa3b36" class="column-list"><div id="8ef6f94d-295f-41a7-9415-176e45681a4f" style="width:50%" class="column"><figure id="805eb2c2-cd8f-42dd-98a3-a2c7ba8f0e07" class="image"><a href="R&amp;D%20Engineer%20f31f554a4e1c4bc29cf7f5d48faff311/86a29060a60a4d7ed73544d3f287e6a4.jpg"><img style="width:440px" src="R&amp;D%20Engineer%20f31f554a4e1c4bc29cf7f5d48faff311/86a29060a60a4d7ed73544d3f287e6a4.jpg"/></a></figure></div><div id="8254ef64-9b0c-4ca2-83d8-8eb36cefee99" style="width:50%" class="column"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="e37b9d4a-2bf2-4127-a94f-7ea5972a4c5a"><div style="font-size:1.5em"><img class="icon" src="https://www.notion.so/icons/location_gray.svg"/></div><div style="width:100%"><strong>Pennsylvania State University </strong>             State College, PA, USA 16801</div></figure><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="51c6d6f0-29ae-403c-aa7c-f3da33374d5a"><div style="font-size:1.5em"><img class="icon" src="https://www.notion.so/icons/watch-analog_gray.svg"/></div><div style="width:100%">Aug 2018 - Aug 2020</div></figure></div></div><p id="65b91e9d-f03b-4f59-a1e8-394369ce58d5" class=""><em>Penn State presented an intense challenge of moving to a new country, new peoples and a new life around research and learning. My engagement in research activities really helped to grow and learn new things outside of my comfort zone, from computational design to presenting effectively in front of 200 people. Penn State showed me what I wanted in my life, taught me what I needed and surrounded me with an awesome group of like-minded people.</em></p><figure id="0699045c-bc2d-4326-b8a5-060850770a00" class="link-to-page"><a href="R&amp;D%20Engineer%20f31f554a4e1c4bc29cf7f5d48faff311/Deep%20Generative%20Models%20for%20Rapid%20Topology%20Optimiza%200699045cbc2d4326b8a5060850770a00.html"><img class="icon" src="https://www.notion.so/icons/playback-fast-forward_gray.svg"/>Deep Generative Models for Rapid Topology Optimization</a></figure><figure id="a1752a49-225e-43a3-86ba-6090b955dc5a" class="link-to-page"><a href="R&amp;D%20Engineer%20f31f554a4e1c4bc29cf7f5d48faff311/Characterizing%20Implicit%20Cognitive%20Process%20in%20Engin%20a1752a49225e43a386ba6090b955dc5a.html"><img class="icon" src="https://www.notion.so/icons/brain_gray.svg"/>Characterizing Implicit Cognitive Process in Engineering Design Across Contexts using Machine Learning Methods</a></figure><figure id="752939a7-1c33-4f1a-ba6d-3855462d86ad" class="link-to-page"><a href="R&amp;D%20Engineer%20f31f554a4e1c4bc29cf7f5d48faff311/Digital%20Design%20Automation%20to%20Support%20In-Situ%20Embed%20752939a71c334f1aba6d3855462d86ad.html"><img class="icon" src="https://www.notion.so/icons/brain_gray.svg"/>Digital Design Automation to Support In-Situ Embedding of Functional Components in Additive Manufacturing</a></figure><h2 id="b0f92e7f-bb82-4a20-b461-9286cd177ae7" class=""><strong>Bachelors of Technology in Mechanical Engineering</strong></h2><hr id="6ca6ea99-3f2c-4129-9ed0-33b6ce8095fd"/><div id="75c79340-a601-4cc8-95d0-11221a10c830" class="column-list"><div id="a061a59e-74b4-4212-909c-39ac94a75198" style="width:50%" class="column"><figure id="389d8b95-ec92-484b-834a-0bbaf4d92665" class="image"><a href="R&amp;D%20Engineer%20f31f554a4e1c4bc29cf7f5d48faff311/872205068.png"><img style="width:432px" src="R&amp;D%20Engineer%20f31f554a4e1c4bc29cf7f5d48faff311/872205068.png"/></a></figure></div><div id="8ebea7b8-0ba5-4803-8b58-958bd3d424c4" style="width:50%" class="column"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="2fad3b85-e54d-4493-9215-a202430ec497"><div style="font-size:1.5em"><img class="icon" src="https://www.notion.so/icons/location_gray.svg"/></div><div style="width:100%"><a href="https://www.iitj.ac.in"><strong>Indian Institute of Technology </strong></a>Jodhpur, Rajasthan, India 342030</div></figure><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="f18ab1a3-1e7b-49ae-826c-dc0448f66c41"><div style="font-size:1.5em"><img class="icon" src="https://www.notion.so/icons/watch-analog_gray.svg"/></div><div style="width:100%">July 2014 - May 2018</div></figure></div></div><p id="feed6b30-f881-4b9f-b9eb-bdec3d107f06" class=""><em>IIT Jodhpur presented an unprecedented scale and diversity of opportunity. My four years of phenomenal professors across the disciplines pushed me to expand, challenge, and adjust my worldview. My engagement in Technical Society exercised my creative muscle, sparked my obsession with design, and strengthened my tolerance to adversity. My experience with Frame-X (film making club) showed me the power of empathetic leadership and expanded my artistic comfort zone. My tenure throwing major, campus-wide events validated that quality stems from attention to detail.</em></p><figure id="a9749747-dc3d-44bf-b7ea-fea7310f4dc2" class="link-to-page"><a href="R&amp;D%20Engineer%20f31f554a4e1c4bc29cf7f5d48faff311/Build%20Orientation%20Optimization%20for%20Strength%20Enhanc%20a9749747dc3d44bfb7eafea7310f4dc2.html"><img class="icon" src="https://www.notion.so/icons/city_gray.svg"/>Build Orientation Optimization for Strength Enhancement of FDM Parts Using Machine Learning based Algorithm</a></figure><p id="cede097c-3153-43ae-8755-42ee07792c43" class="">
+</p><p id="b6e21cc2-768a-4645-a913-94191de2a824" class="">
+</p><p id="11189548-0dac-4f03-a9db-2c19fead74a3" class="">
+</p><p id="438add52-f4ac-4134-83ff-d12538cdb6bd" class="">
+</p><p id="4f7961d8-2589-47da-aec4-f756ac92d1ca" class="">
+</p><p id="f83e71d8-c172-42cc-a07a-bf00e157a2de" class="">
+</p></div></article></body></html>

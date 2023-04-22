@@ -1,0 +1,669 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Characterizing Implicit Cognitive Process in Engineering Design Across Contexts using Machine Learning Methods</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="a1752a49-225e-43a3-86ba-6090b955dc5a" class="page sans"><header><div class="page-header-icon undefined"><img class="icon" src="https://www.notion.so/icons/brain_gray.svg"/></div><h1 class="page-title"><strong><strong>Characterizing Implicit Cognitive Process in Engineering Design Across Contexts using Machine Learning Methods</strong></strong></h1></header><div class="page-body"><p id="ecd28bc9-c633-4b16-bbeb-794fb9867314" class=""><strong>Abstract </strong></p><blockquote id="56d404bc-c483-4918-8ed4-b1a1eae48885" class="">This work presents design findings from a study employing a digital version of the Delta Design Game tool, originally developed by Bucciarelli in 1991. In this work, we present a digital interface in which users play the Delta Design game online while the interface collects data on the behavior of the designer. Using our tool, players can compose, revise and verify the designs on a digital platform, while the digital tool captures every action taken in the interface. For this research, we studied N=15 engineering graduate students to compare design behaviors in groups of high-performing and low-performing designers. We used Hidden Markov Modeling techniques to discern patterns of behaviors between high-performing designers and low-performing designers. Our findings from the Hidden Markov Models show that designers proceed through four procedural latent states for the design challenge. High-performing designers typically achieve optimal performance by dividing the complex novel problems into sub-problems and defining an analogy with familiar tasks. Both efficient and inefficient designers are able to achieve high-performing scores but show different cognitive processes. Interpreted through Schraagen’s theory of design cognition, the high performing designers in general showed progressive deepening strategies, progressing systematically through subtasks, starting with structural aspects of the challenge before the parametric optimization.</blockquote><hr id="6e91e563-8f9c-47ef-ac2f-75d065359644"/><p id="e9c61d09-448b-4a3b-93c7-8e1118f6f9db" class=""><strong>Skills Learned</strong></p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="0a26e7fa-55b3-4db7-b619-8ceba35d57fc"><div style="font-size:1.5em"><img class="icon" src="https://www.notion.so/icons/archery_gray.svg"/></div><div style="width:100%">Object Oriented Programming | Data-Collection | Sequential Learning | Human Studies | Markov Modelling | Visualization Techniques | GUI Development | MATLAB | TensorFlow | MATLAB App Designer | Python Graph Models</div></figure><hr id="929be56d-c1fc-405e-8ee8-bc24b1a6b8f7"/><h3 id="ddbbe480-cce0-4ba0-8ec7-2a837aa65f3e" class=""><details open=""><summary>Highlights</summary></details></h3><div class="indented"><p id="a3c2759c-e00f-4f41-9476-468b8403696b" class=""><strong>Design Strategies</strong><strong></strong></p><p id="34f6a311-a6a4-4062-bc61-af98a720891f" class="">Because engineering design requires significant  iterative  cognitive activities and the synthesis of domain-specific knowledge, researchers are often interested in the transfer of strategies for domain-specific knowledge. There are three classifications of strategies that are typically studied: <strong>Control strategies</strong>, <strong>Heuristic strategies</strong>, and <strong>Learning strategies</strong>. Control strategies determine <em>which </em>tasks should be carried out, heuristic strategies determine <em>how </em>a task should be carried out, and learning strategies are the ways that designers <em>learn </em>to carry out tasks. These transfer learning attributes vary between expert designers and novices and therefore affects the solution quality of novel problems.</p><figure id="64d092b8-cd8e-423e-a259-7709f3f86836" class="image" style="text-align:center"><a href="Characterizing%20Implicit%20Cognitive%20Process%20in%20Engin%20a1752a49225e43a386ba6090b955dc5a/dd02.png"><img style="width:624px" src="Characterizing%20Implicit%20Cognitive%20Process%20in%20Engin%20a1752a49225e43a386ba6090b955dc5a/dd02.png"/></a><figcaption>Cognitive Design Strategies Classification</figcaption></figure><p id="80b7ff1b-2b5b-4234-8f82-a15e3d9558d7" class=""><strong>Introduction</strong><strong></strong></p><p id="b1bbb59c-dcb6-42d8-b6d7-718a4d85bea5" class="">Researchers have explored the behaviors of experts and novices while solving novel problems. Results of these studies suggests that the experts use general control and heuristic strategies that they learned previously while working in a specific domain. Besides using task-specific strategies, experts also implement their abstract and organized domain knowledge. Schraagen showed that experts tend to solve novel problems by dividing subproblems in a specific order and then applying abstract knowledge structures and heuristic strategies to compensate for their lack of domain knowledge. Schraagen presented two global characteristic strategies for the way experts tackling novel problems: The first is called progressive deepening and the second is called mental simulation. <strong>Progressive deepening </strong>is a control strategy, where the designer proceeds through the same sub-problem repeatedly, with each pass gaining new information, and establishing automaticity in their design responses. <strong>Mental simulation</strong>, on the other hand, is a heuristic strategy where design experts mentally establish the outcome of a design action before taking action. We build on the previous work and explore the novel problem solving process of graduate students for a potential impact on design education research and computational design, where these learned strategies can benefit engineering graduate students and the development of generative artificial intelligence.</p><p id="14f93363-cd40-443a-8058-b348b0b04f2c" class="">In this work, we present a digital interface of the Delta Design Game to facilitate our investigation of novel design problems. Participants play the Delta Design game interactively, while the interface collects all moves representing design decisions throughout the duration of the game. Players can compose, revise, and analyze their design using this tool on an online platform while our interface capture every state of design and thus, providing a rich source to analyze the enacted design behaviors. We employ this design platform to compare the design behaviors between high-performing and low-performing designers in a novel problem design context. We also compared the design behaviors between efficient and inefficient designers, to study the effect of automaticity. To this end, the overarching question this research seeks to answer is as follows:</p><p id="c7ec32c4-368c-4f11-af1a-3d6ac44d509e" class=""><span style="border-bottom:0.05em solid"><strong>What design strategies do intermediate-level designers employ when challenged with a novel complex problem?</strong></span></p><p id="58c8f43e-d837-4fec-9dea-bf0c5921404b" class=""><strong>Delta Design Game</strong></p><p id="f4691902-d69f-446d-ae00-190dd56ce1fe" class=""><strong>Delta-Design </strong>is a fictional design game developed by Bucciarelli, to teach students the social designing skills such as communications, trade-offs, and team-dynamics. This game consists of a well-defined configuration design problem, but on a skewed physics system. Due to this anomaly in world, this makes it challenging for designers to apply existing domain knowledge and design heuristics. However, the objectives in the design problem are identical to typical configuration design problems, therefore, making it a research tool suitable for studying designing for structurally similar novel problem.<div class="indented"><figure id="fdd043f0-2457-4e18-9cf5-428899fa33ea" class="image" style="text-align:center"><a href="Characterizing%20Implicit%20Cognitive%20Process%20in%20Engin%20a1752a49225e43a386ba6090b955dc5a/dd04_orig.png"><img style="width:859px" src="Characterizing%20Implicit%20Cognitive%20Process%20in%20Engin%20a1752a49225e43a386ba6090b955dc5a/dd04_orig.png"/></a><figcaption>                                                                Delta Design Game</figcaption></figure></div></p><p id="a2e825d6-b26f-4cab-aabf-dac175112b71" class="">To facilitate design and data collection, we developed a graphical user interface (GUI) using MATLAB’s App designer. Besides facilitating the virtual design, we also focused on providing a more authentic design environment by embedding client feedback as a feature in the tool. The back end of the GUI tests the design score and satisfaction of constraints in real-time. The GUI also does not allow for impossible design features (for example, overlapping delta triangles). There are nine design actions that can be performed to complete the challenge. We place these actions on three different panels based on their roles. There are three message boxes in GUI: Delta World Status, Design Feedback, and Participant Information. The “Delta Status” message box displays the success or an error message corresponding to a designer’s actions. The “Participant Information” box displays the participant number, time left for the study and number of deltas. The “Design Score” message box is an essential feature for making this GUI a real-life experience, providing real-time insight as to the constraints when designs do not meet requirements. We also designed a control panel to provide a way to mitigate accidental mistakes. For example, if a designer accidentally deletes a triangle, they can use the UNDO function to return to the previous state. We added a panel at bottom for an overview of design constraints and objective function details. More information about the software can be found <a href="Characterizing%20Implicit%20Cognitive%20Process%20in%20Engin%20a1752a49225e43a386ba6090b955dc5a.html">here</a>.</p><p id="d046d647-f21a-44f5-b13c-9130e8cefa45" class=""><strong>Research Findings</strong></p><p id="812a7edb-e3e1-48d7-8296-7d8516989bc8" class="">We characterize patterns of design behaviors enacted by designers using Hidden Markov Models to investigate high- and low-performing designers (as classified using their design performance), and efficient- and inefficient designers (as classified using number of actions they took).</p><figure id="533e7176-a3ef-406e-b5fd-9bea8318ca44" class="image" style="text-align:center"><a href="Characterizing%20Implicit%20Cognitive%20Process%20in%20Engin%20a1752a49225e43a386ba6090b955dc5a/dd05.png"><img style="width:624px" src="Characterizing%20Implicit%20Cognitive%20Process%20in%20Engin%20a1752a49225e43a386ba6090b955dc5a/dd05.png"/></a><figcaption>                                           Hidden Markov Modeling Results</figcaption></figure><p id="0cad55cd-284d-42b8-91cf-30d3e4bb15f6" class="">HMM captured variances and similarities in the patterns of behaviors and the way that different groups of designers proceeded through latent states. This data were analyzed statistically in aggregate and then by training four Hidden Markov Models to depict the underlying latent “states” of behaviors in which the designers engaged. The participants for this study were intermediate-level designers currently enrolled in graduate engineering programs. Our findings indicated that both efficient and inefficient designers could achieve high-performing client scores, but the underlying patterns of behaviors between the groups were dissimilar. Interpreted through Schraagen’s design theory, we observed:</p><ul id="29c3bad0-f1ae-4194-b08d-7595082aa9e3" class="bulleted-list"><li style="list-style-type:disc">The high-performing and efficient designers indicated more methodical Progressive Deepening strategies as they systematically divided the task into small subtasks, approaching the structural components first and then optimizing the parametric components of the design later.</li></ul><ul id="804ca3c7-3474-4a17-9eed-63546052f118" class="bulleted-list"><li style="list-style-type:disc">The inefficient designers took a more trial-and-error approach throughout the process, resulting in rougher state transitions via the HMM.</li></ul><ul id="6ec1bfc0-a7ea-473c-9830-7a87ec0c2fd1" class="bulleted-list"><li style="list-style-type:disc">Results from this study show how intermediate level designers may still be developing learning strategies to apply which solving a novel design problem and illuminate how design theory manifests in a population group that is neither novice nor expert.</li></ul><p id="5588673d-aa5e-4898-aa60-71ba82b8eac3" class="">Further, this study is the first to demonstrate a digital version of the classic Delta Design challenge for an individual, which we posit can be used to continue to investigate the problem-solving strategies inherent in engineering design thinking.</p></div><p id="7b29e229-0a8a-46f1-a0d4-9b142086fc24" class=""><div class="indented"><p id="34445a0f-8bbf-4494-80f0-7688cb953111" class=""><strong></strong></p></div></p></div></article></body></html>
